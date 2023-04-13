@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class DCIT50 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int noStudents;
+
+        System.out.print("Enter the number of students: ");
+
+        noStudents = scanner.nextInt();
+
+        scanner.nextLine(); // to consume the newline character left by nextInt()
+
+        String[] names = new String[noStudents];
+
+        int[] grades = new int[noStudents];
+
+        for (int i = 0; i < noStudents; i++) {
+
+            System.out.println("Enter information for student Number: " + (i+1));
+
+            System.out.print("Enter your name: ");
+
+            names[i] = scanner.nextLine();
+
+            System.out.print("Enter your grade: ");
+
+            grades[i] = scanner.nextInt();
+
+            scanner.nextLine(); // to consume the newline character left by nextInt()
+
+        }
+
+        int highestGrade = grades[0];
+
+        int highestIndex = 0;
+
+        for (int i = 1; i < noStudents; i++) {
+
+            if (grades[i] > highestGrade) {
+
+                highestGrade = grades[i];
+
+                highestIndex = i;
+
+            }
+
+        }
+
+        System.out.println("The student with the highest grade is " + names[highestIndex] + " Average " + highestGrade + "");
+
+        scanner.close();
+
+    }
+
+}
